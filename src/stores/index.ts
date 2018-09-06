@@ -1,9 +1,8 @@
-import { IApp } from "../types";
+import { createStore } from "redux";
+import { appReducer } from "../reducers";
 
-import { App } from "./app";
-
-export const createStores = (initialState: IApp) => {
+export const createStores = (initialState: any) => {
   return {
-    appStore: new App(initialState)
+    store: createStore(appReducer, initialState)
   };
 };

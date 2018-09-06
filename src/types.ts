@@ -7,7 +7,7 @@ export interface IApp {
 }
 
 export interface IAppProps {
-  appStore: IApp;
+  spec: ISpec;
 }
 
 export interface IAppState {}
