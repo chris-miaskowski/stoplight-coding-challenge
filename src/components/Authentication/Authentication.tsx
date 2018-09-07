@@ -36,20 +36,24 @@ export class Authentication extends React.Component<IProps, any> {
 
   public render() {
     return (
-      <div>
-        <select
-          value={this.props.securityDefinitionName}
-          onChange={event => this.onSecurityDefinitionNameChange(event)}
-        >
-          {this.securityDefinitionNames.map(name => (
-            <option key={name} value={name}>
-              {name}
-            </option>
-          ))}
-        </select>
+      <form>
+        <div className="form-group">
+          <label>Authentication method</label>
+          <select
+            className="form-control"
+            value={this.props.securityDefinitionName}
+            onChange={event => this.onSecurityDefinitionNameChange(event)}
+          >
+            {this.securityDefinitionNames.map(name => (
+              <option key={name} value={name}>
+                {name}
+              </option>
+            ))}
+          </select>
+        </div>
 
-        <div>{this.securityDefinitionForm}</div>
-      </div>
+        {this.securityDefinitionForm}
+      </form>
     );
   }
 }

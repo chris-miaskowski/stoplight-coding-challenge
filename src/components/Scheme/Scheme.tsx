@@ -7,9 +7,9 @@ export class Scheme extends React.Component<any, any> {
 
   public render() {
     return (
-      <label>
-        Scheme:{" "}
+      <div className="form-group">
         <select
+          className="form-control"
           value={this.props.scheme}
           onChange={event => this.onSchemeChange(event)}
         >
@@ -19,7 +19,7 @@ export class Scheme extends React.Component<any, any> {
             </option>
           ))}
         </select>
-      </label>
+      </div>
     );
   }
 }

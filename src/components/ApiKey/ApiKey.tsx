@@ -7,13 +7,14 @@ export class ApiKey extends React.Component<any, any> {
 
   public render() {
     return (
-      <label>
-        Api key:{" "}
+      <div className="form-group">
+        <label>Api key</label>
         <input
+          className="form-control"
           onChange={event => this.onApiKeyChange(event)}
           value={this.props.apiKey}
         />
-      </label>
+      </div>
     );
   }
 }
