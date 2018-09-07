@@ -8,8 +8,8 @@ export class ApiKey extends React.Component<any, any> {
     render() {
         return (
           <label>
-            Api key: <input onChange={event => this.onApiKeyChange(event)} />
+            Api key: <input onChange={event => this.onApiKeyChange(event)} value={this.props.apiKey} />
           </label>
-        )
+        );
   }
 }

@@ -8,4 +8,5 @@ export interface IProps {
   pathName: string;
   parameters: any[];
   spec?: Spec;
+  securityDefinitionName: string;
 }

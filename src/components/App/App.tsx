@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import Paths from "../../containers/PathsBlocksCollection/connect";
 import { Header } from "../Header/Header";
 import configureStore from '../../store/configureStore';
-import ApiKey from '../../containers/ApiKey/connect';
+import Authentication from '../../containers/Authentication/connect';
 import Scheme from "../../containers/Scheme/connect";
 
 const styles = require("../../styles.css");
@@ -16,8 +16,8 @@ export const App = () => (
       <div className="p-5">
         <section className="card mb-5">
           <div className="card-body">
-            <h2>Authorization</h2>
-            <ApiKey />
+            <h2>Authentication</h2>
+            <Authentication />
           </div>
           <div className="card-body">
             <h2>Scheme</h2>

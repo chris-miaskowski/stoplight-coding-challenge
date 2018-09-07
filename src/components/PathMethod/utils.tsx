@@ -7,7 +7,7 @@ export const buildUrl = (baseUrl: string, inputBatch: any) => {
     .join('&');
 
   if (query) {
-    url += `\&${query}`;
+    url += `?${query}`;
   }
 
   inputBatch

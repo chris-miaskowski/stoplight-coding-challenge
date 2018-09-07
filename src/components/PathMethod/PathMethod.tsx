@@ -5,6 +5,7 @@ import { PathMethodResponses } from '../PathMethodResponses/PathMethodResponses'
 import { PathExecutionBlock } from '../PathExecutionBlock';
 import { IProps } from './types';
 import { buildUrl } from './utils';
+import {ApiKeySecurity} from "swagger-schema-official";
 
 const styles = require('../../styles/index.css');
 
@@ -55,11 +56,17 @@ export class PathMethod extends React.Component<IProps, any> {
       spec,
       pathName,
       scheme,
+      securityDefinitionName
     } = this.props;
-    // TODO: get the authorization method from the spec
+
+    const securityDefinition = spec.securityDefinitions[securityDefinitionName];
+
+    if (securityDefinition.type === 'apiKey') {
+      inputBatch = [{ in: 'query', name: (securityDefinition as ApiKeySecurity).name, value: apiKey }, ...inputBatch];
+    }
 
     const url = buildUrl(
-      `${scheme}://${spec.host}${pathName}?apikey=${apiKey}`,
+      `${scheme}://${spec.host}${pathName}`,
       inputBatch
     );
 
