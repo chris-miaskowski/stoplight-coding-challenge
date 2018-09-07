@@ -1,5 +1,5 @@
-import React = require("react");
-import { PathBlock } from "./PathBlock";
+import * as React from "react";
+import { PathBlock } from "./PathBlock/PathBlock";
 
 export class PathsBlocksCollection extends React.Component<any, any> {
     public render() {

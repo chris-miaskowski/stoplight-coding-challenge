@@ -1,4 +1,4 @@
-import React = require("react");
+import * as React from "react";
 
 export class PathExecutionBlock extends React.Component<any, any> {
     private inputs: any[];
@@ -8,7 +8,7 @@ export class PathExecutionBlock extends React.Component<any, any> {
         this.inputs = props.parameters.map((p:any) => React.createRef());
     }
 
-    private handleSubmit(event:any) {
+    private handleSubmit = (event:any) => {
         event.preventDefault();
         const inputBatch = this.inputs.map((input, index) => {
             const paremeter = this.props.parameters[index];
@@ -18,7 +18,7 @@ export class PathExecutionBlock extends React.Component<any, any> {
                 value: input.current.value
             };
         });
-        this.props.onExecute(inputBatch);        
+        this.props.onExecute(inputBatch);
     }
 
     public render() {
@@ -27,20 +27,20 @@ export class PathExecutionBlock extends React.Component<any, any> {
             return (
                 <div key={parameter.name}>
                     <label>
-                        {parameter.name}: 
+                        {parameter.name}:
                         <input type="text" ref={this.inputs[index]} />
                     </label>
-                </div>                
+                </div>
             );
         });
 
         return (
-            <form onSubmit={this.handleSubmit.bind(this)}>
+            <form onSubmit={this.handleSubmit}>
                 <div id="pathMethodParameters">
                     {parametersElements}
                 </div>
-                <input type="submit" value="Execute"/>
-            </form>            
+                <input type="submit" value="Execute" />
+            </form>
         );
     }
 }

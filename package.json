@@ -29,12 +29,9 @@
     "lint": "tslint -p tsconfig.json"
   },
   "dependencies": {
-    "@types/swagger-parser": "^4.0.2",
     "lodash": "^4.17.10",
-    "mobx": "^5.0.3",
-    "mobx-react": "^5.2.5",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "swagger-parser": "^5.0.5"
@@ -47,6 +44,7 @@
     "@types/react-dom": "^16.0.7",
     "@types/react-redux": "^6.0.7",
     "@types/redux": "^3.6.0",
+    "@types/swagger-parser": "^4.0.2",
     "@types/swagger-schema-official": "^2.0.10",
     "@types/webpack": "^3.0.4",
     "clean-webpack-plugin": "^0.1.16",

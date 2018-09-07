@@ -1,4 +1,4 @@
-import React = require("react");
+import* as React from "react";
 import { get } from 'lodash';
 
 import { PathMethodResponses } from "./PathMethodResponses";
@@ -13,7 +13,7 @@ export class PathMethod extends React.Component<any, any> {
 
     public render() {
         const method = this.props.method;
-        const parameters = (this.props.parameters || []).concat(method.parameters || []);
+        const parameters = [...(this.props.parameters || []), ...(method.parameters || [])];
         const methodName = this.props.methodName;
 
         return (
@@ -38,7 +38,7 @@ export class PathMethod extends React.Component<any, any> {
         const api = this.props.api;
         // TODO: get schema from a user selection
         // TODO: get apiKey from the path configuration
-        // TODO: get the authorization method from the spec        
+        // TODO: get the authorization method from the spec
         let url = `http://${api.host}${this.props.pathName}?apikey=123`;
         const query = inputBatch
             .filter((input: any) => input.in === 'query')
