@@ -38,7 +38,7 @@ export class PathMethod extends React.Component<IProps, any> {
               onExecute={this.handleExecute.bind(this, methodName)}
             />
             <PathMethodResponses
-              schema={spec.schemes.join(', ')}
+              schema={spec.schemes !== undefined ? spec.schemes.join(', ') : ''}
               response={this.state.response}
             />
           </div>

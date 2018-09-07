@@ -1,5 +1,4 @@
 import * as React from "react";
-import { PathsBlocksCollection } from '../PathsBlocksCollection';
 import { IProps } from './types';
 import { PathBlock } from '../PathBlock/PathBlock';
 
