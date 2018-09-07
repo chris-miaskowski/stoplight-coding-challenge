@@ -5,6 +5,7 @@ import Paths from "../../containers/PathsBlocksCollection/connect";
 import { Header } from "../Header/Header";
 import configureStore from '../../store/configureStore';
 import ApiKey from '../../containers/ApiKey/connect';
+import Scheme from "../../containers/Scheme/connect";
 
 const styles = require("../../styles.css");
 
@@ -18,7 +19,11 @@ export const App = () => (
             <h2>Authorization</h2>
             <ApiKey />
           </div>
-        </section>        
+          <div className="card-body">
+            <h2>Scheme</h2>
+            <Scheme />
+          </div>
+        </section>
         <Paths />
       </div>
     </div>

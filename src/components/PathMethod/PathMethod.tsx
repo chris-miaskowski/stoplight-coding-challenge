@@ -22,7 +22,7 @@ export class PathMethod extends React.Component<IProps, any> {
 
     return (
       <div id="pathMethod" className="card">
-        <div          
+        <div
           className={`card-header ${styles.clickable}`}
           data-toggle="collapse"
           data-target={`#${method.operationId}`}
@@ -54,12 +54,15 @@ export class PathMethod extends React.Component<IProps, any> {
       apiKey,
       spec,
       pathName,
+      scheme,
     } = this.props;
-    // TODO: get schema from a user selection
     // TODO: get apiKey from the path configuration
     // TODO: get the authorization method from the spec
 
-    const url = buildUrl(`http://${spec.host}${pathName}?apikey=${apiKey}`, inputBatch);
+    const url = buildUrl(
+      `${scheme}://${spec.host}${pathName}?apikey=${apiKey}`,
+      inputBatch
+    );
 
     const body = get(
       inputBatch.find((input: any) => input.in === 'body'),

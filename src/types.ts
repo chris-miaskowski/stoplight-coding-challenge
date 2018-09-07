@@ -13,4 +13,5 @@ export interface IAppProps {
 export interface IAppState {
   spec?: ISpec;
   apiKey?: string;
+  scheme?: string;
 }
