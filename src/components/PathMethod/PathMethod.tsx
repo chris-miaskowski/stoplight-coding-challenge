@@ -56,7 +56,6 @@ export class PathMethod extends React.Component<IProps, any> {
       pathName,
       scheme,
     } = this.props;
-    // TODO: get apiKey from the path configuration
     // TODO: get the authorization method from the spec
 
     const url = buildUrl(
