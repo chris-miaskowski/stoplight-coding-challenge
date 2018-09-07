@@ -1,17 +1,17 @@
 import * as React from 'react';
 import { omit } from 'lodash';
-import { PathMethod } from '../PathMethod';
+import PathMethod from '../../containers/PathMethod/connect';
 import { IProps } from './types';
 
 export class PathBlock extends React.Component<IProps, any> {
-  public render() {
+  private renderPathMethodsElement() {
     const {
-      api,
       path,
       pathName,
     } = this.props;
+
     const pathMethods = omit(path, 'parameters');
-    const pathMethodsElements = Object.entries(pathMethods)
+    return Object.entries(pathMethods)
       .map(([methodName, method]) => (
         <PathMethod
           key={methodName}
@@ -19,9 +19,14 @@ export class PathBlock extends React.Component<IProps, any> {
           methodName={methodName}
           method={method}
           parameters={path.parameters}
-          api={api}
         />
       ));
+  }
+
+  public render() {
+    const {
+      pathName,
+    } = this.props;
 
     return (
       <div id="pathBlock" className="card">
@@ -30,7 +35,7 @@ export class PathBlock extends React.Component<IProps, any> {
             <h2>{pathName}</h2>
           </div>
           <div id="pathMethodsCollection" className="accordion">
-            {pathMethodsElements}
+            {this.renderPathMethodsElement()}
           </div>
         </div>
       </div>

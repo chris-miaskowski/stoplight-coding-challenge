@@ -10,4 +10,7 @@ export interface IAppProps {
   spec: ISpec;
 }
 
-export interface IAppState {}
+export interface IAppState {
+  spec?: ISpec;
+  apiKey?: string;
+}

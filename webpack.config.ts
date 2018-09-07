@@ -21,7 +21,7 @@ const buildConfig: webpack.Configuration = {
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-        loader: "ts-loader"
+        loader: "ts-loader",
       },
       {
         test: /\.css$/,
