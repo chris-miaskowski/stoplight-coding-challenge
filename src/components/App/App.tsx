@@ -13,7 +13,12 @@ export const App = () => (
     <div className={styles.app}>
       <Header />
       <div className="p-5">
-        <ApiKey />
+        <section className="card mb-5">
+          <div className="card-body">
+            <h2>Authorization</h2>
+            <ApiKey />
+          </div>
+        </section>        
         <Paths />
       </div>
     </div>

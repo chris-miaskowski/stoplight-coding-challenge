@@ -29,7 +29,7 @@ export class PathBlock extends React.Component<IProps, any> {
     } = this.props;
 
     return (
-      <div id="pathBlock" className="card">
+      <div id="pathBlock" className="card mb-3">
         <div className="card-body">
           <div id="pathHeader">
             <h2>{pathName}</h2>

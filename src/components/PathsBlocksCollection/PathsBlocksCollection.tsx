@@ -17,7 +17,7 @@ export class PathsBlocksCollection extends React.Component<IProps, Object> {
         <PathBlock
           key={pathName}
           pathName={pathName}
-          path={path}
+          path={path}          
         />
       ));
   }

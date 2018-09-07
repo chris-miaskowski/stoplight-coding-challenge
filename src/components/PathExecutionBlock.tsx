@@ -5,10 +5,10 @@ export class PathExecutionBlock extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);
-        this.inputs = props.parameters.map((p:any) => React.createRef());
+        this.inputs = props.parameters.map((p: any) => React.createRef());
     }
 
-    private handleSubmit = (event:any) => {
+    private handleSubmit = (event: any) => {
         event.preventDefault();
         const inputBatch = this.inputs.map((input, index) => {
             const paremeter = this.props.parameters[index];
@@ -23,13 +23,11 @@ export class PathExecutionBlock extends React.Component<any, any> {
 
     public render() {
         const parameters = this.props.parameters;
-        const parametersElements = parameters.map((parameter:any, index:any) => {
+        const parametersElements = parameters.map((parameter: any, index: any) => {
             return (
-                <div key={parameter.name}>
-                    <label>
-                        {parameter.name}:
-                        <input type="text" ref={this.inputs[index]} />
-                    </label>
+                <div key={parameter.name} className="form-group">
+                    <label>{parameter.name}</label>
+                    <input className="form-control" type="text" ref={this.inputs[index]} />
                 </div>
             );
         });
@@ -39,7 +37,7 @@ export class PathExecutionBlock extends React.Component<any, any> {
                 <div id="pathMethodParameters">
                     {parametersElements}
                 </div>
-                <input type="submit" value="Execute" />
+                <input type="submit" className="btn btn-sm btn-danger" value="Execute" />
             </form>
         );
     }

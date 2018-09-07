@@ -7,7 +7,9 @@ export class ApiKey extends React.Component<any, any> {
 
   render() {
     return (
-      <input />
+      <label>
+        Api key: <input />
+      </label>
     )
   }
 }

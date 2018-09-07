@@ -6,6 +6,8 @@ import { PathExecutionBlock } from '../PathExecutionBlock';
 import { IProps } from './types';
 import { buildUrl } from './utils';
 
+const styles = require('../../styles/index.css');
+
 export class PathMethod extends React.Component<IProps, any> {
   state = { response: '' };
 
@@ -20,8 +22,8 @@ export class PathMethod extends React.Component<IProps, any> {
 
     return (
       <div id="pathMethod" className="card">
-        <div
-          className="card-header"
+        <div          
+          className={`card-header ${styles.clickable}`}
           data-toggle="collapse"
           data-target={`#${method.operationId}`}
           aria-expanded="true"
@@ -31,7 +33,7 @@ export class PathMethod extends React.Component<IProps, any> {
           <span className="pl-3">{method.summary}</span>
           <span className="float-right"><b>Tags</b>: {method.tags.join(',')}</span>
         </div>
-        <div id={method.operationId} className="collapse show" data-parent="#pathMethodsCollection">
+        <div id={method.operationId} className="collapse" data-parent="#pathMethodsCollection">
           <div className="card-body">
             <PathExecutionBlock
               parameters={parameters}
