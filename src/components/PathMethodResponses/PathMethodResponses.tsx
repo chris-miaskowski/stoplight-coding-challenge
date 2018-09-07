@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { IProps } from './types';
+import * as React from "react";
+import { IProps } from "./types";
 
 export const PathMethodResponses = (props: IProps) => (
   <div>

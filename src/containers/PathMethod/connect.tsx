@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
-import { IAppState } from '../../types';
-import { PathMethod } from '../../components/PathMethod/PathMethod';
+import { connect } from "react-redux";
+import { PathMethod } from "../../components/PathMethod/PathMethod";
+import { IAppState } from "../../types";
 
 const mapStateToProps = (state: IAppState) => ({
   apiKey: state.apiKey,
@@ -9,6 +9,4 @@ const mapStateToProps = (state: IAppState) => ({
   securityDefinitionName: state.securityDefinitionName
 });
 
-export default connect(
-  mapStateToProps,
-)(PathMethod);
+export default connect(mapStateToProps)(PathMethod);

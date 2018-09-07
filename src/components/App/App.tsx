@@ -1,11 +1,11 @@
 import * as React from "react";
-import { Provider } from 'react-redux';
+import { Provider } from "react-redux";
 
+import Authentication from "../../containers/Authentication/connect";
 import Paths from "../../containers/PathsBlocksCollection/connect";
-import { Header } from "../Header/Header";
-import configureStore from '../../store/configureStore';
-import Authentication from '../../containers/Authentication/connect';
 import Scheme from "../../containers/Scheme/connect";
+import configureStore from "../../store/configureStore";
+import { Header } from "../Header/Header";
 
 const styles = require("../../styles.css");
 

@@ -1,25 +1,24 @@
-import * as React from 'react';
-import { get } from 'lodash';
+import { get } from "lodash";
+import * as React from "react";
 
-import { PathMethodResponses } from '../PathMethodResponses/PathMethodResponses';
-import { PathExecutionBlock } from '../PathExecutionBlock';
-import { IProps } from './types';
-import { buildUrl } from './utils';
-import {ApiKeySecurity} from "swagger-schema-official";
+import { ApiKeySecurity } from "swagger-schema-official";
+import { PathExecutionBlock } from "../PathExecutionBlock";
+import { PathMethodResponses } from "../PathMethodResponses/PathMethodResponses";
+import { IProps } from "./types";
+import { buildUrl } from "./utils";
 
-const styles = require('../../styles/index.css');
+const styles = require("../../styles/index.css");
 
 export class PathMethod extends React.Component<IProps, any> {
-  state = { response: '' };
+  public state = { response: "" };
 
   public render() {
-    const {
-      method,
-      methodName,
-      spec,
-    } = this.props;
+    const { method, methodName, spec } = this.props;
 
-    const parameters = [...(this.props.parameters || []), ...(method.parameters || [])];
+    const parameters = [
+      ...(this.props.parameters || []),
+      ...(method.parameters || [])
+    ];
 
     return (
       <div id="pathMethod" className="card">
@@ -32,16 +31,22 @@ export class PathMethod extends React.Component<IProps, any> {
         >
           <h3 className="badge badge-primary">{methodName}</h3>
           <span className="pl-3">{method.summary}</span>
-          <span className="float-right"><b>Tags</b>: {method.tags.join(',')}</span>
+          <span className="float-right">
+            <b>Tags</b>: {method.tags.join(",")}
+          </span>
         </div>
-        <div id={method.operationId} className="collapse" data-parent="#pathMethodsCollection">
+        <div
+          id={method.operationId}
+          className="collapse"
+          data-parent="#pathMethodsCollection"
+        >
           <div className="card-body">
             <PathExecutionBlock
               parameters={parameters}
               onExecute={this.handleExecute.bind(this, methodName)}
             />
             <PathMethodResponses
-              schema={spec.schemes !== undefined ? spec.schemes.join(', ') : ''}
+              schema={spec.schemes !== undefined ? spec.schemes.join(", ") : ""}
               response={this.state.response}
             />
           </div>
@@ -61,24 +66,28 @@ export class PathMethod extends React.Component<IProps, any> {
 
     const securityDefinition = spec.securityDefinitions[securityDefinitionName];
 
-    if (securityDefinition.type === 'apiKey') {
-      inputBatch = [{ in: 'query', name: (securityDefinition as ApiKeySecurity).name, value: apiKey }, ...inputBatch];
+    if (securityDefinition.type === "apiKey") {
+      inputBatch = [
+        {
+          in: "query",
+          name: (securityDefinition as ApiKeySecurity).name,
+          value: apiKey
+        },
+        ...inputBatch
+      ];
     }
 
-    const url = buildUrl(
-      `${scheme}://${spec.host}${pathName}`,
-      inputBatch
-    );
+    const url = buildUrl(`${scheme}://${spec.host}${pathName}`, inputBatch);
 
     const body = get(
-      inputBatch.find((input: any) => input.in === 'body'),
-      'value',
+      inputBatch.find((input: any) => input.in === "body"),
+      "value"
     );
 
-    let options: any = {
+    const options: any = {
       method: methodName,
       headers: {
-        'Content-Type': spec.produces,
+        "Content-Type": spec.produces
       }
     };
 
